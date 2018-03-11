@@ -1,0 +1,248 @@
+\documentclass[]{article}
+
+%opening
+\title{Annotated Bibliography}
+\author{Kaushi Perera}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Zuccon, G., Koopman, B., & Palotti, J. (2015, March). Diagnose this if you can. In European Conference on Information Retrieval (pp. 562-567). Springer, Cham.}
+
+The authors of this paper have analysed the effectiveness of current search engines in retrieving relevant information for diagnostic medical circumlocutory queries. ‘Circumlocutory queries’ are the queries issued by people who are seeking for information about their health conditions, but by describing the symptom they observe rather than using the medical term. 
+ 
+\textbf{Methodology}: In this research researchers have investigated 8 main symptoms and for each of these symptoms they have considered 3 to 4 queries (26 queries). The queries have been obtained using a method which was proposed by Stanton and colleagues. This method generates medical circumlocution diagnostic queries which resemble what users may issue to search for self-diagnosis information. Along with the queries, the names of the symptoms that they refer to, have been recorded in a table. This information has been used for relevance assessment.
+ 
+Then the queries have been issued to two commercial search engines (Google and Bing). The top 10 search results were retrieved in answer to each of the 26 queries. Queries were issued against the Google Ajax API and the Microsoft Azure Marketplace API from Australia on the same day. The URL of the returned top 10 results have also been recorded. 
+
+A customised version of the Relevation! assessment tool has been used to conduct the relevance assessment. Eight higher degree students and researchers from Queensland University of Technology were recruited to assess the relevance of the retrieved results. Most importantly, these assessors are not medical experts, so that this experiment can realistically simulate the situation of people with little or no medical knowledge searching for health information on the Web. The results/web pages (retrieved by all its relevant queries) belonging to a single symptom were shown to one accessor. Accessors has to decide by evaluating whether each webpage provided relevant information, so that a user is able to self-diagnose or is able to find the correct medical term of the symptom they are experiencing. Assessors were given 4 labels, which are Not relevant, On topic but unreliable, Somewhat relevant and Highly relevant, and were instructed to assign one label for each search result. 
+
+The effectiveness of the two search engines have been assessed using precision and nDCG. Precision has been considered at ranks 5 and 10 indicating the proportion of relevant documents among the top 5 (10) search results. nDCG has been considered at ranks 1, 5 and 10 indicating the usefulness of the document ranking based on the position of relevant documents in the result list.
+     
+\textbf{Results}: The results have shown that on average only about 4 to 5 out of the top 10 results retrieved by the considered search engines provide information that are helpful to people in self-diagnosing themselves. In particular, if highly relevant information is sought, only 3 out of 10 results on average are highly useful for self-diagnosis purposes.
+
+When analysing the documents/results which were assigned as ‘Somewhat relevant’, it revealed that these documents contained information not only regarding the relevant symptom but also it had information about other symptoms as well. E.g. It had a list of symptoms with corresponding definition which also included the targeted symptom. An analysis of the documents assessed as ‘highly relevant’ revealed that, those documents contained information which was focused on the relevant symptom and it also included, descriptions and causes of the symptoms aided by photographic material showing visual examples of symptoms occurrences. Documents which were assessed as ‘on topic but unreliable’ has been considered irrelevant in this evaluation.
+      
+\textbf{Conclusion}: According to the results of this study, it is suggested that current retrieval techniques may be poorly suited to queries which describe symptoms in a circumlocutory, colloquial manner. 
+
+Therefore, there is a possible risk encountered with people searching the Web for information for self-diagnosis, because they are likely to encounter misleading advice/irrelevant information that could confuse them, lead to erroneous self-diagnosis and ultimately cause harm. 
+More research need to be directed towards search systems so as to support such circumlocutory, colloquial queries. 
+  
+\textbf{Limitations}: Only a small amount of queries were considered, this evaluation has considered an ad hoc scenario which means that only one query has been considered (where in reality health-related queries can be part of more complex search sessions, so the effectiveness of the sessions should also be accounted), all the factors that come into play, such as reliability and understandability of the retrieved information when determining the relevance of the documents have not been considered in this experiment. 
+
+
+\section{Stanton, I., Ieong, S., & Mishra, N. (2014, July). Circumlocution in diagnostic medical queries. In Proceedings of the 37th international ACM SIGIR conference on Research & development in information retrieval (pp. 133-142). ACM.}
+
+
+The objective of this study is to find the underlying professional medical term with the use of a free-form colloquial health search query. In simple terms, the solution suggested in this paper is to ignore terms that are not relevant for determining the symptom and to pick up the terms which are more likely to matter.
+
+\textbf{Colloquial names and circumlocutory  }
+ 
+e.g. \textbf{Colloquial name} for ‘cephalalgia’: headache
+
+\textbf{Circumlocutory} for ‘cephalalgia’: my head is pounding
+
+This study has only focused on the ‘medical signs and symptoms’. The aim of it is to solve three problems namely, how to generate training data for this experiment, how to represent the similarity between a query and a symptom, and how to predict the symptom from a query. 
+ 
+\textbf{Three problem statements:}
+
+\textbf{Problem 1}. Given a medical sign or symptom s, find colloquial and circumlocutory ways of expressing s
+
+\textbf{Problem 2}. Given a medical sign or symptom s and a colloquial or circumlocutory expression c, identify ways to automatically represent the similarity of s to c
+
+\textbf{Problem 3}. Given a circumlocutory expression c of a symptom s, design a way to automatically infer s from c  
+
+\textbf{Methodology:} 
+
+Researchers have followed, a reverse use of crowdsourcing with the use of images and videos to obtain training data (colloquial variants for a medical symptom). Then the main aim of this study has been to map queries to a symptom name and documents to a symptom name, in order to improve the search engines ability to retrieve more useful content. 
+
+In this attempt, people have been given with fixed symptoms and asked to tell what search queries they would issue to determine the health problem. Rather than providing an unfamiliar medical term, such as ‘scleral icterus’ to the crowdsourcing participants and asking them to generate possible queries, in this study a set-up has been made which simulate the experience of having a given symptom. This is done because users often describe what they see and feel. It is noticed that, the queries obtained in this study tend to be much shorter excluding many details about the situation when compared to queries which are obtained from query logs. 
+
+\textbf{Knowledge Sources used:  }
+ 
+1.\textbf{	Greek and Latin roots:} Used to understand English words because many medical symptom names derive from Greek or Latin. Researchers have obtained a list of common Greek and Latin prefixes, suffixes and roots used in medical words. The drawback of this approach is that some words have prefix or suffix, they do not match the meaning. E.g.: herpes has the Latin suffix “pes” which means “of the foot”, but the word herpes is Greek. For this study researchers have retrieved a list of 762 Greek and Latin roots, including 109 suffixes, 645 prefixes and the remainder stems from Wikipedia.
+ 
+2.	\textbf{Medical Dictionaries:} For each symptom, scope note definitions have been obtained using MeSH. One limitation of using dictionaries is that the definitions they may have maybe more complicated than the symptom.
+
+3.	\textbf{Encyclopedias:} Encyclopedias contain detailed information about concepts. E.g.: ‘The first paragraph tends to have a definition and contain some distinguishing features about the symptom’. Researchers have obtained a list of 1800 symptoms with 1100 Wikipedia entries. The stop words, and extremely common and rare words have been removed from the first paragraph of these entries
+
+4.	\textbf{Synonyms:} WordNet has been used. However, using WordNet on a search query is risky because it is not content aware.
+
+5.	\textbf{Paraphrases:} Researchers have used Microsoft Translator’s Paraphrase API to obtain the top 6 paraphrases for ‘I’m suffering from (symptom name)’.
+
+6.	\textbf{Anatomy:} Using body parts in search queries. Also, some resources on the web contain 	lists of body parts. Limitation of matching a search query with a body part is that, people being overly general and specific when describing the body part. E.g. explaining skin conditions, such rash on arm etc. Anatomy data has been obtained from the WordNet. 
+
+7.	\textbf{Colors:} Colors are important when diagnosing medical symptoms. One drawback is that two users can describe the same color in different ways. Researches have obtained a list of 949 colors. 
+
+Researchers have computed the similarity, between a query and a symptom using different features (query, sim[tom feature vevtor). Each query and the symptom is converted to a vector space depending on the feature selected (Every combination of query and symptom is used to create a feature vector). The cosine of the angle between these two vectors represent the similarity. E.g.: ‘To compute a feature based on body part similarity, for a query q and a symptom s compute cos(body(q), body(encyc(s)))’. ‘Queries that are circumlocutions of a symptom are labeled positive, and all other combinations are labeled negative’. 
+
+The vector space is created over the words in the query. The dimension of the vector are words and the values represent how many times the word appears.  
+
+\textbf{Bag of words:} Each word in the query is a feature in a high dimensional space 
+
+\textbf{How to obtain labelled data:} 1. Crowdsourcing experiments, 2. Wikipedia redirects. 
+
+Researchers also found that the quality of crowdsourced data was quite high because some queries even contained professional or colloquial name of the symptom. When researchers themselves attempted to label 10% of the queries with their symptoms, they could only label 56% of the queries accurately, despite their knowledge regarding symptom names and definitions of the symptoms. 
+
+Researchers have obtained ‘redirects from the Wikipedia link graph for 370 symptoms with an average of 12 redirects per symptom’. The main purpose of Wikipedia redirects is to connect people to the best content available in Wikipedia.    
+
+1.	\textbf{Train and Test on a fixed set of symptoms}
+
+There were images representing 31 symptoms, so the classifier was expected to identify which of the 31 classes is the most likely candidate. It is the same with the videos which represented 10 symptoms.
+ 
+Results have reported using Micro-average and Macro-average. 
+
+\textbf{Micro-average:} Reports the total fraction of correct symptoms  
+\textbf{Macro-average:} Averages on a per symptom basis
+
+2.\textbf{	Train and Test on a different set of symptoms}
+
+This set of experiments have been conducted to identify symptoms when training data are not present. Therefore, they have ‘trained on crowdsourced data and test on Wikipedia redirects’. In this case most of the data was labeled as negative because most of the queries of symptoms have not been identified as a circumlocution of a symptom (99.4%). To avoid this imbalance they have ‘down sampled the negatives in the Wikipedia redirects so as to have an equal number of positives and negatives in the test set’.   
+
+\textbf{Results: }
+
+1.\textbf{	Train and Test on a fixed set of symptoms}
+
+\textbf{For images:} The study had an improvement to 61% micro-average. This is a 33% improvement over the baseline bag of words approach. 
+
+\textbf{For videos:} The study had an improvement to 85% micro-average. This is a 26% improvement over the baseline.
+
+\textbf{MetaMap:} ‘Is a linguistic system for mapping natural language text to the UMLS Metathesaurus developed at the National Library of Medicine’. The results obtained by using MetMap was not successful when compared to ‘bag of words’ because it had ignored the surrounding context when trying to map a query to a symptom.  
+
+\textbf{2.	Train and Test on a different set of symptoms}
+
+The overall accuracy is 59%
+
+\textbf{Limitation of this approach:} There are many query, symptom combinations that are truly positive, but the learned classifier fails to connect. Also, in here ‘researchers do not expect this classifier to perform well on redirects from professional to more professional language, e.g., scleral icterus to jaundice’. In addition, researchers ‘do not expect this method to perform well on foreign language redirects as the training data was derived from US crowdworkers’. However, this method shows improvements over random guessing. Also, ‘the difference between image and video training is negligible’ in this approach.
+  
+The top features identified in this approach have the ability to ‘match the query or synonym of the query to the symptom or encyclopedia expansions of the symptom’. The feature ‘body parts’ are one of the top ranked feature, but ‘colors’ as a feature is absent. 
+
+\textbf{Limitations:}  The first limitation is that, these crowdsourcing participants do not properly represent a sample of Internet users. The second limitation is that, it is kind of impossible for someone to correctly describe how a symptom feels and the pain experienced, when that person is actually not experiencing the symptom. The second drawback was existed only in cases where the crowdsourcing people had to have personal experience.     
+
+
+
+\section{Pogacar, F. A., Ghenai, A., Smucker, M. D., & Clarke, C. L. (2017, October). The Positive and Negative Influence of Search Results on People's Decisions about the Efficacy of Medical Treatments. In Proceedings of the ACM SIGIR International Conference on Theory of Information Retrieval (pp. 209-216). ACM.}
+
+
+According to this paper researchers have aimed to determine ‘the extent to which people can be influenced by search engine results’. This means if a user is seeking information to determine the efficacy of a medical treatment, how will they determine the efficacy depending on the results that they have obtained. The health information sought by consumers are mostly related to either a health issue or medical treatment. Therefore, it is really important to understand whether the search results would have any influence on consumers when they make decision about medical treatments. 
+     
+\textbf{Methodology:} The researchers have conducted a controlled laboratory test with 60 participants. The results given to the participants were either biased towards being correct or incorrect. In addition, the researchers have controlled the topmost rank of a correct result to investigate the effect of rank. Participants had to decide the efficacy of 10 medical treatments, either with the help of a search result page or under a controlled condition where they had to directly answer the question with any search results. 
+
+\textbf{Five experimental conditions:}
+
+\textbf{Two independent variables:}
+
+1.	The search results bias: correct and incorrect
+2.	The rank of the topmost correct search result: level 1 and level 3
+
+\textbf{Control condition: }No search results are presented to the user
+Out of the 10 medical treatments, 5 of them were helpful and 5 of them were unhelpful
+
+\textbf{Two dependent variables:}
+
+1.	The fraction of correct decisions
+2.	The fraction of harmful decisions made by the participant
+
+Furthermore, researchers have collected data using questionnaire and feedback on each decision made. 
+
+Participants had to determine the efficacy of a treatment by selecting one of the three categories which are:
+
+1.\textbf{	Helps}: ‘the treatment is effective and has a direct positive influence on the specified illness’
+2.	\textbf{Inconclusive}: ‘medical professionals are still unsure if the treatment will have a positive, negative or no influence on the specified illness’
+3.	\textbf{Does not help}: ‘the treatment is ineffective and either has no effect or has a direct negative influence on the specified illness’
+
+Participants had to determine the efficacy of two out of ten treatments while experiencing the \textbf{control condition.  }
+
+Search results which were biased towards correct information had 8 out of 10 results correct.
+
+Search results which were biased towards incorrect information had 8 out of 10 results incorrect.
+
+The study has also controlled the rank of the topmost correct result by putting it either at rank 1 or rank 3. This has been done because according to eye tracking studies the mostly viewed search results are the results at rank 1 and rank 2 (first two results are viewed at very high rates).
+
+Researchers had ‘pools of 8-10 correct and 8-10 incorrect documents’ for each medical treatment. 
+
+In the search results page each result/ document had its title, url, and a snippet. 
+
+In this experiment if a participant selects the efficacy of a medical treatment as to be ‘inconclusive’ it is always wrong because the medical treatments are either helpful or unhelpful. 
+
+The user interface for the experiment has been designed in such a way that users are able to view a snippet for each of the search result/document. If a user clicks on a search result he/she will be redirected to a screenshot of the actual web page. 
+
+\textbf{Balanced Design}: In order to balance the helpful medical treatments with the unhelpful ones, researchers have generated 3 Latin squares. 
+
+1.	For the 5 experimental condition
+2.	For the 5 helpful medical treatments
+3.	For the 5 unhelpful medical treatments
+
+‘Overlaying the Latin square of experimental conditions over the helpful treatments and over the unhelpful treatments individually, we create two separate Graeco-Latin squares ensuring that both the helpful treatments and unhelpful treatments have an equal and systematic balance of the experimental conditions’.
+
+\textbf{Results}: ‘Logistic Regression’, has been used because dependent variables have binary outcomes. Two models have been built to analyse the significance of the dependent variables.  
+
+1.	Complete model: Includes ‘the dependent variable, the applicable independent variables, and the random effects’.
+ 
+2.	Null model: Includes ‘everything in first model minus the variable of interest’
+
+With the use of these two models, the likelihood ratio test has been performed. ‘The p-values are then determined by chi-square tests on the log-likelihood values’.
+
+The ‘Topmost Correct Rank’ has not been considered as a fixed effect in the model, because there are no search results available in the control condition. 
+
+\textbf{Statistics}: ‘Results with the rank 1 document correct and biased towards correct information can lead to increased accuracy up to 70%, while lowering harmful decisions from 20% to 6%. Conversely, results biased towards incorrect information significantly reduces accuracy from 43% to 23%, while doubling the incidence of harmful decisions’.
+
+Also, they have found ‘the effect of the search result bias is statistically significant on the fraction of correct decisions and harmful decisions’
+
+\textbf{Topmost correct rank}: ‘The topmost correct rank had less of an effect on the dependent variables, yet it did demonstrate some explanatory significance for our model with a nearly statistically significant effect (p = 0.06) on the fraction of harmful decisions made by the participant’
+
+When the search bias was towards incorrect information ‘the results show that participants actually perform worse than if they had no search results at all’
+
+For 8 out of 10 treatments which were biased towards correct information, the accuracy was increased with respect to the control. 
+
+\textbf{Control condition}: When the medical treatment was truly unhelpful, participants were tend to answer it as ‘inconclusive’. This clarifies that participants are looking for positive information because they do not want to believe a treatment is unhelpful. This is dangerous because this means that searchers are expecting to find positive information and therefore, they can be influenced by ‘search results with incorrect information’. 
+
+Participants were asked to provide information about their previous knowledge about health issues. It is found that ‘Knowledge of the health issue and medical treatment were positively correlated as determined by the Pearson correlation coefficient of r = 0.40 (p 0.001)’.
+ 
+Also, having prior knowledge of the health issue and medical treatment resulted in a positive correlation, as determined by the Pearson correlation coefficient of r = 0.40 (p 0.001).
+
+E.g. :When the knowledge of the medical treatment is low, the fraction correct is 0.20±0.03 and it increases to 0.34±0.06 when knowledge is high. The difference between these rates is statistically significant (p=0.04). However, when users had high and low knowledge of the ‘health issue’, the difference of correctly determining the efficacy was not statistically significant. 
+However, even knowledgeable participants could not ‘fully ignore the incorrect information and only focus on the correct information and exceed the control condition’s performance’.  
+
+If the analysis is performed for the fraction of harmful decisions, it is found that ‘more knowledge is associated with more harmful decisions’. Another one reason for this is because ‘people who are less knowledgeable are more likely to decide a medical treatment as inconclusive’. 
+
+\textbf{Confidence of the decision:} ‘Participants who decide that a medical treatment’s efficacy is inconclusive, are less confident in their answer than those deciding a treatment is unhelpful or helpful.’ 
+ 
+\textbf{Clicks:} ‘Rank 1 is so important that some participants click on it multiple times in the same session’.
+
+‘The difference between the mean number of clicks for correct and harmful decisions is statistically significant’. This basically means that when participants interact more with the search results they are more likely to make accurate decisions and this may mean that they are ‘working harder to determine the correct answer’.
+ 
+\textbf{Conclusion:} ‘With exposure to correct information, searchers perform better. On the other hand, there is harm that can be done by incorrect information’
+
+Search results can significantly affect people’s decisions about the efficacy of medical treatments.
+
+‘Compared to not using a search engine, when users interacted with search results which were biased toward incorrect information, their accuracy dropped from 43% to 23%. When users interact with search results biased towards correct information, their accuracy climbed to 65%’.
+
+Non-relevant does not always mean that they are not harmful. Because if a document is able to lead searcher to believe in a harmful medical treatment it would be dangerous and damaging. 
+  
+Therefore, these results demonstrate that search engines have a great potential to both help and harm people. 
+
+
+\section{Soldaini, L., Yates, A., Yom-Tov, E., Frieder, O., & Goharian, N. (2016). Enhancing web search in the medical domain via query clarification. Information Retrieval Journal, 19(1-2), 149-173.}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
