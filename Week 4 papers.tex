@@ -1,0 +1,489 @@
+\documentclass[]{article}
+\usepackage{graphicx}
+
+%opening
+\title{Annotated Bibliography}
+\author{Kaushi Perera}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Zeng, Q. T., Crowell, J., Plovnick, R. M., Kim, E., Ngo, L., \& Dibble, E. (2006). Assisting consumer health information retrieval with query recommendations. Journal of the American Medical Informatics Association, 13(1), 80-90.}
+
+\textbf{Introduction}
+
+The aim of this research has been ‘to help consumers better articulate their health information needs. In order to do this, researchers have developed and evaluated a novel system, the Health Information Query Assistant (HIQuA), to recommend alternative/additional query terms. The recommended terms have been deemed to be closely related to the initial query and are able be used as building blocks to construct more accurate and specific queries. By relying on user recognition instead of recall, this tool has attempted to make query formation easier’
+
+\textbf{Background and Significance}
+
+\textbf{Query Modification:} 'Reformulating consumer queries with professional synonyms’
+
+‘For identifying related terms to suggest to users, this study has considered several sources’
+
+\textbf{1.	Usage patterns of consumers:} ‘Forming recommendations from consumers’ usage patterns has the advantage of reflecting the semantic distance among concepts in the consumers’ mental models. The downside is that it also relies on the extent of the consumers’ knowledge and their recall abilities, which could be quite limited’
+
+\textbf{2.	Controlled medical vocabularies:} ‘In medicine there is a great wealth of available semantic knowledge embedded in controlled vocabularies, so making thesaurus-based suggestions is feasible and common. The disadvantage of relying on a thesaurus is that it may sometimes lead to recommendations that are unrecognizable to a consumer’
+
+\textbf{3.	Concept co-occurrence in medical literature:} ‘This provides another source to estimate the semantic relatedness of concepts. Medical literature reflects up-to-date knowledge in the health domain’
+
+In this study, these three sources have been combined to ‘provide HIR users with recommendations’
+
+‘In this study, the method for estimating semantic distance and combining sources has been designed specifically for the consumer HIR context and consequently differs from other published methods’ 
+
+\textbf{Design}
+
+\textbf{Overview}
+
+‘The main function of the system of this study has been to identify medical concepts that are semantically related to a user’s initial query and recommend them to the user.’
+
+‘The semantic distance among concepts has been calculated based on their co-occurrence frequency in query log data and in medical literature, and on known semantic relationships in the medical domain’
+
+‘Topic-specific modifiers have also been recommended for concepts of several common semantic types’
+
+‘The system has continuously learned from user selections in order to improve future performance’
+
+\textbf{Distance-Based Query Recommendations}
+
+‘To provide a query recommendation, the system has first mapped the query into 1 or more concepts and then identifies concepts that are related to those concepts’
+
+\textbf{Mapping to Concepts}
+
+‘In HIQuA, semantic relations and semantic distances are exist among concepts, not character strings. Therefore, Query strings are first mapped to concepts, which are defined by the Unified Medical Language System (UMLS)’
+
+‘If the entire query string cannot be mapped to one UMLS concept, HIQuA has attempted to find concepts with names that match the longest possible substrings of submitted search terms’
+
+‘Disambiguate between concepts could be identified based on the following factors’
+
+1.	‘Whether the matched term is considered a suppressible name for the concept by the UMLS’
+2.	‘The editing distance (i.e., the number of editing operations— deletions, insertions, and substitutions—necessary to make two strings identical) between the term and the preferred name of the concept (the shorter the better)’
+3.	‘The number of vocabulary sources containing the concept (suggesting a common rather than a rare semantic)’
+4.	‘Whether the term is marked in UMLS with ‘‘<1>’’ (indicating that it is the primary meaning of a term)’
+
+\textbf{Identifying Related Concepts}
+
+For estimating semantic distance this study has used three sources
+
+1.	the semantic relations of concepts in medical vocabularies
+2.	co-occurrence of concepts in consumer HIR sessions
+3.	co-occurrence of concepts in medical literature
+
+\textbf{Medical vocabulary source:} ‘UMLS Metathesaurus relationship (MRREL) table has been used as the medical vocabulary source (these sources are reliable because they constructed and reviewed by domain experts)’
+
+\textbf{Literature co-occurrence source:} ‘The UMLS Metathesaurus co-occurrence (MRCOC) table has been used as the literature co-occurrence source’
+
+\textbf{Co-occurrence of concepts in consumer HIR sessions:} ‘The query log of a consumer health information Web site, MedlinePlus, has been obtained from the National Library of Medicine and used as the co-occurrence source. Co-occurrence has been calculated based on concepts that appeared together in the same sessions’
+
+‘For each concept mapped to the initial query, HIQuA has extracted related concepts from the three sources’
+
+\textbf{MRREL table:} ‘Lists semantic relationships between concept, such as ‘‘parent,’’ ‘‘child,’’ ‘‘synonymous,’’ and ‘‘similar to,’’ among others’
+
+\textbf{MRCOC table:} ‘Lists pairs of concepts that have appeared together in medical literature, along with the frequency of their co-occurrence’
+
+\textbf{The query log table (QRYLOG):} ‘Lists pairs of concepts that users have often performed searches on in conjunction with each other’
+
+‘Also, the table has been continuously updated by HIQuA with the information gained about users’ search habits’
+
+In here ‘the system has calculated to what degree or how closely they can be viewed as related, rather than determining whether two concepts are related’
+
+‘The degree of relevance has been calculated based on: the frequency of occurrence of a relation in various medical vocabularies, or the frequency of concept co-occurrence in literature or log data’
+
+Also, in this study it is considered that ‘parent-child relations are more important when it comes to medical vocabularies’
+
+‘For relations derived from MRCOC and QRYLOG, the frequency score of a relation has been calculated by simply considering the frequency of co-occurrence of the 2 concepts in that relation. For these 2 sources, Score(Cx, Cy, s) = Score(Cy, Cx, s)’
+
+‘For MRREL: the frequency score has been considered as the weighted co-occurrence of the two concepts in the table’
+
+‘For each related concept a fuzzy score (0 to 1) has been computed, representing the degree of relatedness between that concept and the initial concept. The fuzzy membership, i, for each set of concepts from a source has been defined as: ’
+
+\includegraphics{Capture 4.png}
+
+Cn : ‘any concept that is found to be related to Cx based on one of the sources’
+
+If A, B and C are the three sources, two fuzzy rules have been implemented:
+
+1.	‘If two concepts are relevant in A and B and C, then they are relevant. (Rule 1)’
+2.	‘If two concepts are relevant in A or B or C, then they are relevant. (Rule 2)’
+
+For Rule 1: ‘fuzzy intersection of the three fuzzy sets has been computed’
+
+For Rule 2: ‘fuzzy union of the three fuzzy sets has been computed’
+
+‘The membership of an element i in the intersection of three fuzzy sets, A, B, and C, has been defined as the product of i’s degree of membership in A and i’s degree of membership in B and i’s degree of membership in C:’
+
+\includegraphics {Capture 5.png}
+
+‘The fuzzy union has been accordingly defined as the algebraic sum (i.e., the simple sum minus the algebraic products):’
+
+\includegraphics {Capture 6.png}
+
+
+To ‘translate the membership value into semantic distance, intersection has been given more weight’
+
+\includegraphics {Capture 7.png}
+
+\textbf{Determining the related concepts for a query concept:} ‘The top n concepts with the shortest semantic distance from a query concept have been considered related to it’
+
+‘The final list if query suggestions have been consisted with the concepts that either appear in all three lists or have an extremely high score in just one of the lists’
+
+\textbf{Semantic-Type Based Recommendations}
+
+Out of the health topics which have been identified as interested to users, the users are actually interested in certain aspects of those topics. For instance, ‘one user may be interested in the risk factors for a disease but another user may be interested in the prognosis’
+
+Users have been encouraged to specify the aspect in their queries by ‘first classifies the concepts based on their semantic types which is done by the system’
+
+‘The system has identified type-specific modifiers for a few major semantic types. If a query’s  concept is related to any one of these semantic types, then the system has suggested some of the modifiers/ concepts which have been hard-coded in the system, to the users. For instance, for the semantic type ‘disease’, the system has suggested concepts, such as symptoms, risk factors, causes etc ’. ‘In a case where the semantic type is ‘procedure, the system has suggested modifiers, such as risks, benefits etc. However, these suggestions have been based not on the concept the user entered, but on the type of concept the user entered’. 
+
+\textbf{Learning from User Selection}
+
+It is important to update the QRYLOG table, with the user behaviour. ‘When a suggested concept has been selected by a user, its occurrence with the query concept has been increased by one. This has been done, so as to improve the quality of recommendations.’ 
+
+\textbf{Implementation}
+
+‘HIQuA has been implemented using a 3-tier client-server architecture’
+
+\textbf{The client:} ‘a Java applet that runs in a Web page’
+
+\textbf{The middle tier:} ‘an Apache Tomcat Web server’
+
+\textbf{The back end:} ‘a MySQL database server containing millions of medical concepts and relations derived from the Unified Medical Language System (UMLS), which is provided by the National Library of Medicine, and the query log data’
+
+\textbf{Evaluation}
+
+\textbf{Data Collection}
+
+‘This study has recruited 213 subjects’
+
+‘Query recommendation function has been blocked for half of the participants. Then they have been asked to perform 1 of 2 predefined health-retrieval tasks. The retrieval tasks have been either to find five factors that increase one’s chance of having a heart attack or to find three methods to treat baldness’. 
+
+‘The assignment of the task to participants has been done randomly. 50% of the participants has been randomly assigned one question and the other half has been assigned to the other question. The assignment has been done randomly to reduce the chance of many subjects unexpectedly having prior knowledge of the given question’
+
+\textbf{Self-defined task:} ‘Please search for any health-related question that you are curious about’
+The self-define task has been conducted, in order for the researchers to ‘later evaluate participants’ queries in the context of the goals’
+
+‘The participants have also been instructed to rate their own overall satisfaction of the search experience on a scale of 1 to 5 at the end of the searches’
+
+‘All queries typed by participants and the recommendations selected by the recommendation group has been automatically recorded in a log file’
+
+
+\textbf{Data Analysis}
+
+‘Three outcomes have been measured and compared in both the recommendation group and the non-recommendation group, so as to evaluate the impact of HIQuA recommendations’
+
+‘When researchers evaluated the unadjusted association between the groups (recommendation vs. non-recommendation) and potential demographic factors, it has shown that only health related Web experience and health status are statistically significant. Therefore, these factors have been used in the multivariable logistic regression models and the general linear model to obtain the effect of query recommendations on the three outcomes’ 
+
+\textbf{1.	User satisfaction}
+
+‘A multivariable logistic regression model has been used to determine the effect of being in the group receiving query recommendations/ being in the group not receiving query recommendations, on user satisfaction. The odds ratios and 95% confidence intervals have been computed’ 
+
+\textbf{2.	Query success rate}
+
+‘A query that resulted in one or more relevant documents in the top 10 search results has been considered successful. A multivariable logistic regression model has been used to determine the effect of being in the group receiving query recommendations/ being in the group not receiving query recommendations, on the percent of successful queries. The odds ratios and 95% confidence intervals have been computed’. 
+
+‘For this outcome only the top ten results have been considered’
+
+‘The relevance of the top 10 results have been evaluated by 3 human reviewers. Researchers have been able to evaluate query results for the self-defined task as well because users have written down what their information need was.’
+
+\textbf{How to determine the relevance of a query result:} ‘The result page needed to contain at least some information that met the search goal stated by the participant misleading or in the form of commercial advertisement’
+
+\textbf{3.	Score of the predefined task}
+
+In order to score the predefined task ‘the answers given by participants for the predefined retrieval task have been graded according to a gold standard that has been established based on literature review. When grading, a correct answer has been given a score of 1, incorrect answers have been given a score of -1, and the absence of an answer has been graded as 0. All answers to a question have summed up and divided by 5 or 3, respectively, to generate a normalized score’
+
+‘Analysis of variance (General Linear Model) has been used to compare the predefined task score of the group receiving query recommendations versus the group that did not receive query recommendations.’
+
+\textbf{Results}
+
+\textbf{User Satisfaction}
+
+’85.2% of the participants who received query recommendations have been found to be satisfied with their search experience. 80.6% of the participants who did not received query recommendations have been found to be satisfied with their search experience. The difference was not statistically significant. According to the odds ratio calculated using logistic regression, the odds of being satisfied has increased by 79% if the participant has been in the recommendation group. The confidence interval for the odds ratio, however, has shown to be wide and has crossed 1.0; thus the association between groups and user satisfaction has been concluded as not statistically significant’
+
+\textbf{Query Success Rate}
+
+‘There has been a statistically significant difference (p 5 0.006) in the percentage of successful queries between the recommendation group (76.0%) and the non-recommendation group (65.7%). According to the odds ratio calculated using logistic regression, being in the recommendation group has increased the odds of submitting a successful query by 66% (with a 95% confidence interval of between 16% and 138%). Therefore, the association between groups and query success rate has been concluded as statistically significant’
+
+\textbf{Source of the statistically significant difference:} ‘If a query has been manually typed despite of the group of the participant, there has been no statistical difference in success rate’. ‘If a participant in the recommendation group selected a suggested query, it has shown that, those participants had higher success rates than participants who used typed-in queries’. (‘This comparison has also been adjusted for the two confounders—health-related Web experience and health status’)
+
+\textbf{Score of Predefined Task}
+
+‘The normalized mean score of the predefined task has been higher for the non-recommendation group (0.577) than for the recommendation group (0.440), although not statistically significant. Both mean and median has been reported for this outcome because the distribution of scores has been asymmetric’
+
+\textbf{Conclusion of the results:} ‘The use of query recommendations has led to a higher rate of successful queries. The impact (positive or negative) of query recommendations on user satisfaction or accomplishing a predefined retrieval task has not been clearly identified.’
+
+\textbf{Limitations}
+
+1.	‘The target users have been consumers, which is a very diverse group’. ‘The diversity of the consumer population makes measurement of semantic distance between concepts inherently less precise’
+
+2.	‘For query expansion, consumer queries have been mapped to UMLS concepts by string matching. Accurate mapping is not always feasible because the UMLS concepts and concept names primarily represent the language of health care professionals’
+
+3.	‘The rules which have been used in this study are a fuzzy representation of this basic logic and it is not equivalent to an algebraic mean of rankings from each source’
+
+4.	‘The query success has been determined by the researchers instead of study participants. Therefore, there is a potential problem of this approach because researchers could make mistakes in interpreting the retrieval goals written by participants, although most goals were relatively straightforward’
+
+5.	‘Time spent by participants conducting the searches has been recorded, but not reported as an outcome, because there could be different causes for spending more time at a task’
+
+6.	‘This study has not distinguished officially published literature from unpublished literature and neither it had distinguished high-quality from low-quality material’. ‘Even though quality and credibility of content are important issues, these aspects have been considered as beyond the scope of HIQuA development’ 
+
+\textbf{Discussion and Conclusion}
+
+The system HIQuA: ‘recommends medical concepts and modifiers related to an initial user query as building blocks to form more specific or complex queries’
+
+‘The evaluation has shown that the availability of recommendations has led to a significantly higher rate of successful queries, although there has not been any significant impact on user satisfaction or on accomplishing a predefined retrieval task’
+
+‘Rather than using UMLS preferred names directly, this study has considered consumer-preferred names, and they have been used whenever available as the display names for concepts’
+
+‘HIQuA is limited in its capacity to understand the real information needs underlying a query, especially a short one. Therefore, it can only make best guesses about which other terms might be of use to a consumer’
+‘Several factors have been contributed to the failure to show a statistically significant impact of the system on overall user satisfaction or on the score of the predefined task’
+
+1.	‘Not every consumer needs the help of recommendations when performing every single task’ 
+
+2.	‘Not all participants made use of the recommendations’
+
+3.	‘Query recommendations would not be of help to people with very poor health literacy and very poor
+ general literacy levels’
+ 
+4.	‘Satisfaction is a very subjective measurement’
+
+‘No prior study, has used fuzzy rules to combine multiple co-occurrence data with relations from vocabularies’
+
+‘The use of the query log has been considered as important because it is a record of consumer language and consumer search behaviours’
+
+‘As a general purpose application in the health care domain, HIQuA is identified as potentially beneficial for many users conducting HIR’
+
+‘Because query formation is a challenging task for many HIR users, it is believed that this system, or a similar system, could have a positive impact on HIR for consumers by providing meaningful and consumer-centered suggestions’
+
+\section{Ryan, A., \& Wilson, S. (2008). Internet healthcare: do self-diagnosis sites do more harm than good?. Expert opinion on drug safety, 7(3), 227-229.}
+
+\textbf{Self-diagnosis sites:} These web sites include content, such as ‘information and support for people with diagnosed conditions, information regarding possible diagnoses for particular symptoms, and information which assist people to decide whether to self-treat or consult a doctor’. 
+
+The diagnoses suggested for self-reported symptoms has been usually provided by private companies or recognised healthcare providers. 
+
+\textbf{The difference of diagnosis information which was available via books and which is currently available via self-diagnosis websites}
+
+The self-diagnosis websites are identified to be different because of several reasons
+
+1.	It is reported that the accuracy and quality of information available in certain Internet websites are low
+
+2.	 Anyone can add their individual experiences to the websites
+
+3.	Even though certain websites contain ‘information from reputable organizations’, there is a possibility that this information is not well edited or checked when compared to symptoms and self-diagnosis information which has been available in previous print publications.
+
+4.	Even though the main intention of the health-related website developers is to provide clear accurate health information to the public, in some cases, such as using websites for selling products and services, this may not be the same. Since their main aim to sell their product or service, this may result in people being ‘financially exploited’
+
+5.	Also, when websites are used for marketing different home treatments or diagnostic acids, these may ‘have their own harms and benefits’
+
+\textbf{Benefits of self-diagnosis websites}
+
+The increased availability of ‘good-quality constructive information regarding symptoms’, have several benefits.     
+  
+1.	Well-constructed websites have been able to provide information immediately, when compared to meeting a doctor by appointment, because patients ‘may have to wait several days to get an appointment with the doctor’ 
+
+2.	When ‘home or over-the-counter remedies’ are available, patients can reduce ‘inappropriate and unnecessary visits to the doctor’
+
+3.	Also, information available on websites can provide additional knowledge, such as ‘when it is appropriate and desirable to visit a doctor’
+
+4.	Information available on websites can empower patients where they are able to gain knowledge about their symptoms, so that when they visit the doctor, they can further clarify ‘why the doctor has chosen a particular treatment or testing pathway’
+
+5.	Well-constructed websites have subsidiary benefits which are not directly related to the ‘original aim of self-diagnosis’, such as ‘educating people about how to stay healthy’ 
+
+\textbf{Harms of self-diagnosis websites}
+
+1.	The use of self-diagnosis websites can lead to further anxiety of users who are overly concerned about their health, because these websites can contain information, such as ‘false or true diagnoses of serious and/or life-threatening conditions’
+
+2.	The information available on self-diagnosis websites might be unreliable, because the information may have been delivered ‘without the presence of a health professional to provide a context, to reflect on the likelihood of different diagnoses, or to put in place any steps that are necessary to make a definitive diagnosis’
+
+3.	The harm of self-diagnosis websites can be worsened if users try to buy ‘over-the-counter remedies or prescription drugs from internet pharmacies’
+
+4.	Also, the reassurance provided by the self-diagnosis websites can be untrue or false which will lead to ‘a delay in seeking professional assistance and diagnosis’
+    
+\textbf{Conclusion}
+
+Since there is an increase in the use of self-diagnosis websites, it is essential to make sure that the content available in these websites to be ‘well-edited, well-checked, well-referenced, and evidence-based’. Also, it is important to provide reliable self-diagnosis websites with a ‘quality mark’, so that it is easier for the users to make ‘well-informed choices’ about which self-diagnosis web sites are high-quality ones.
+
+It is important to make sure that, not only advanced health information, but also ‘a good level of basic healthcare and diagnostic and treatment services’ are available in the Internet, so that less-educated or laypeople are also able to use the Internet to retrieve health-related information. 
+
+Also, with the growth of the Internet patients are likely to use ‘a greater array of decision-making resources from the Internet without any involvement of a doctor or a nurse’. Therefore, there is a need for further research to ‘determine the impact of the use of such resources, who that impact is focused on, and how self-diagnosis sites should be improved so that the user is most likely to make well-informed choices based on the available information with the minimum of anxiety and harm’.    
+
+\section{Alpay, L., Verhoef, J., Xie, B., Te'eni, D., \& Zwetsloot-Schonk, J. H. M. (2009). Current challenge in consumer health informatics: Bridging the gap between access to information and information understanding. Biomedical informatics insights, 2, BII-S2223.}
+
+Because currently a lot of organizations and companies provide health information and services via online, the Internet has become ‘an important source of health information for the general public’.  
+
+\textbf{The Changing Facets of Health Information Consumers}
+
+\textbf{(1)	Behaviours of the consumer of health information}
+
+\textbf{Two dimensions:} degree of engagement in health enhancement and degree of independence in health decision making
+
+\textbf{Distinct groups:} independent actives and independent passives, doctor dependent actives and doctor-dependent passives
+
+\textbf{Independent actives:} ‘more easily understand health information and are more likely to seek health information from multiple sources such as physicians, the internet, books and magazines’
+
+\textbf{Doctor-dependent actives:} ‘more difficulty understanding health information and are more likely to primarily rely on their doctors for health information and decisions’
+
+\textbf{Independent passives and doctor-dependent passives:} ‘both less engaged in health enhancement, suggesting that both groups value health information less. Therefore, obviously these two passive groups are less likely to seek health information from any source, including doctors (more so for independent passives than for doctor-dependent passives)’
+
+\textbf{Other factors which affect ‘consumers’ online health information seeking behaviours’:} ‘age, gender, education, race/ethnicities, and computer/internet experiences’
+
+‘It is said that individuals who have chronic illnesses or face significant barriers in accessing health care through healthcare providers (e.g. uninsured, greater physical distance/time travel to provider) are more likely to seek health information online’
+
+\textbf{(2)	The older adult as consumer of health information}
+
+When compared with young people, old people are less likely to use Internet to search for medical information. However, ‘health professionals and policy makers are often stimulating’ the fact that older people need to take more actions on prevention and self-management because ‘aging population is rising and health costs become more expensive’. 
+
+Also, people who have long-term illnesses, such diabetes and asthma are tend to seek information on ‘prevention, management and treatments of their health problems which can change overtime’
+
+\textbf{(3)	Self-management for the consumer of health information}
+
+‘Self-management includes tasks, such as taking medication, making life-style changes or undertaking preventive actions and patients making the day-to-day decisions. Therefore, self-management consists of tasks, such as learning about the illness and treatment options, finding out practical information on healthcare services, and understanding medical jargons’
+
+\textbf{CHI Challenges to Reach the Multi-Facet Consumers}
+
+It is important to assist consumers to find and assess relevant information on the internet (contextualized and personalized), and also to understand it and act upon it
+
+\textbf{(1)	Helping consumers to obtain relevant e-health information}
+
+The Health Information Query Assistant (HIQuA) system has been developed by Zeng and colleagues. This has facilitated ‘consumer health information retrieval on the internet’. The evaluation results have showed that, ‘query recommendation’ which has been enabled by the ‘HIQuA system’, ‘led to statistically significant higher rates of successful queries’. 
+
+‘Theoretical models of information seeking has been used in order to drive the development of web-based health applications’. For instance, ‘the cognitive model of information retrieval (IR) proposed by Sutcliffe and Ennis has been used in the design of the health website SeniorGezond dedicated to older adults in the area of fall prevention’ 
+
+\textbf{(2)	Helping consumers to assess quality health related websites} 
+
+‘A number of organizations and individual researchers have devised new ways (such as user guidance tools, accreditation labels and filtering tools) aiming to help internet users find quality health information. These include: the Centre for Health Information Quality and the DISCERN project in the U.K., the Comprehensive Health Enhancement Support System (CHESS), the MedPICS Certifi cation and Rating of Trustworthy Health Information on the Net, eEurope Quality Criteria for Health related Websites, and Code of the American Medical Association’. 
+
+However, ‘the access to and assessment of quality health information has been identified as a challenging task for most consumers.’
+
+It has been also found that ‘these existing tools/ guidelines for evaluating the quality of information are not adequately being used by consumers’ 
+
+\textbf{(3)	Helping consumers to understand e-health information}
+
+The first building blocks to the empowerment of consumers are: 
+
+1.	‘Finding relevant information’
+2.	‘Assessing its quality’
+
+Because it is important to ‘develop online health information resources that are easily accessible and understandable to the lay public, the National Library of Medicine of the National Institutes of Health in the United States has designed the Genetics Home Reference site that is “sensitive” to lay people’
+ 
+‘Contextualization is about providing supportive information to explain a core message (in this case a health message). Contextualization of information is able to help improving the user’s understanding and sustain an effective human-machine communication. In particular, contextualization of information also can help to reduce the user’s cognitive distance (i.e. the difference in knowledge between the user and the website as the information provider). An added dimension to contextualization is that of personalization which when coupled together has been able to provide a form of individualization necessary to understand the health message’ 
+
+‘Individualization is able to convey, explicitly or implicitly, that the message is specifically for “you” and make the content more relevant and meaningful to the recipient’
+
+\textbf{Tailoring:} ‘creating two-way communication between the information provider and the user in which information about a given user is used by the provider to determine what specific content the user should receive, the context by which the content will be presented, and through which channels the content will be delivered’
+
+\textbf{Bridging the Gap Between Consumer’s Access to Information and Consumer’s Understanding}
+
+‘It has become of prime importance to develop Information and Communication Technology (ICT) based tools that can provide tailored information (contextualized and personalized) in order to support the consumer’s capacity to understand health-related web-based resources’
+
+\textbf{Theoretical Framework: Te’eni Model of Communication}
+
+‘Te’eni has introduced the notion of communication complexity as the communicator’s perception of the cognitive effort needed to ensure effective communication’
+
+‘Effective communication is identified as results from the use of cognitive resources to overcome the difficulties in understanding and uncertainties about the message’
+
+‘Another construct of this model has been of mutual understanding (MU) which requires that the communication be comprehensible according to the sender’s intended meaning and the user’s cognitive capacity’
+
+Contextualization and personalization has also been considered important because it has the ability to ‘reduces communication complexity and makes it easier for the consumer to understand and trust information’
+ 
+Tailoring information so as to fit into a consumers’ ‘specific situations’ has identified as important because then consumers do not have to ‘transform and translate the information’. Also, it has the ability to lead to a ‘easier and less erroneous communication’ 
+ 
+\textbf{Reasons for complexity in communication:} ‘intensity of information, the diversity of views, and the incompatibility between representations and use of information’
+
+It has also been identified as important to include ‘explanations and demonstrations’ to the information, so as to ‘create a common ground between the communicators’. Personalising information to fit to a patient’s real situation has the ability to ‘reduce complexity by requiring less transformations or adaptations’
+
+\textbf{Measurement Instrument for Information Understanding}
+
+Measurements have been obtained to ‘measure the user’s level of understanding given the presence (or lack) of contextualization and personalization’
+
+\textbf{Mutual understanding:} person-to-system understanding (‘the user’s understanding or comprehension of the information he or she has found’)
+
+‘MU as the outcome parameter has been developed based on Bloom’s taxonomy of learning outcomes. This taxonomy has included six hierarchical levels for learning outcomes’
+
+\textbf{1.	Knowledge:} ‘recalling factual information’
+
+\textbf{2.	Comprehension:} ‘explaining the meaning of information, association of concepts, differentiation’
+
+\textbf{3.	Application:} ‘using information in concrete situations. Application involves the recall of knowledge in combination with comprehension to describe a new situation’
+
+\textbf{4.	Analysis:} ‘breaking down a whole into its constituting components. Analysis has involved analyzing data at hand. It has also involved for example recognizing unstated assumptions and error in reasoning, making inferences, evaluating relevance of the data’
+
+\textbf{5.	Synthesis:} ‘putting parts together to form a new and integrated whole. Synthesis has involved higher skills of information formation and processing. Synthesis has typically involved creating a new product or a combination of ideas to form a new whole’
+
+\textbf{6.	Evaluation:} ‘making judgments. Typically evaluation has been concerned, for example, with making value decision about issues, resolving controversies or differences of opinion, and developing opinions and judgments’
+
+‘This instrument, has measured the first four levels of the taxonomy with a total of seven problems: two at level 1 (knowledge); two at level 2 (comprehension); two at level 3 (application) and one at level 4 (analysis)’
+
+‘The last two levels has not been included since they are more relevant for testing professionals (or trainees) in the field rather than lay people (this study’s targeted group)’
+
+‘The total score of the questions for all the categories has made up the MU score which has been scaled with three levels: Low (0–15), Medium (16–31), and High (32–42)’
+
+In this study the researchers have chosen to ‘measure MU from a learning perspective and draw from the literature on lifelong learning, distance education and teaching’
+
+\textbf{Measurement Instrument for User’s Profile: The Case of Cognitive Style}
+
+\textbf{Cognitive style:} ‘the preferred way an individual organizes, filters, transforms, and processes information’
+
+\textbf{Information seeking behaviour:} ‘Information seeking behaviour is known to be highly variable because it is associated with elements or characteristics that are significantly different from one individual to the other’
+
+A person’s cognitive style has been identified using ‘the Group Embedded Figure Test (GEFT)’
+
+
+\textbf{The Seniorgezond Website: An Example of ICT-Based Contextualization}
+
+‘The study has consisted of a pre-test, the intervention with the website, and a post-test’
+
+‘Participants (n = 40) have been randomly assigned to exposure or no exposure to contextualization with the website’
+
+‘This study has demonstrated only one of the two strategies that is proposed, namely contextualization’
+
+‘The information within the website has been structured around problems of ‘fall’ incidences, and has contained four levels of information’
+
+\textbf{Level 1:} ‘The top level ‘Causes of falls’ has included frequently occurring problems in the domain of fall incidences (e.g. dizziness)’
+
+\textbf{Level 2:} ‘The second level ‘Solutions’ has focused on possible interventions and advices associated with the causes of falling e.g. use of a walking aid’
+
+\textbf{Level 3:} ‘Solutions have been supported by the third level ‘Products and Services’ e.g. walking aids, fitness programs’
+
+\textbf{Level 4:} ‘From the Products and Services level, users have been able to access the ‘Supportive Facts’ which has made up the fourth and lowest level of the information trees. Supportive Facts have contained addresses about where to purchase products and services, as well as insurance information’
+
+‘Manipulation of the contextualization has been achieved by removing the Solutions level (second level) as well as crosslinks to the other levels from the navigation. The Solutions level has embedded relevant contextualization since it has acted as a buffer between the Causes (background information) level and the Products and Services level’
+
+\textbf{Conclusion:} ‘Contextualization has been able to significantly increase understanding for non-knowledgeable users’
+
+‘Participant’s cognitive style has also been a significant factor on understanding’
+
+‘It has also shown that participants bring their own contexts, such as social context and psychological context to support their understanding’
+
+\textbf{Discussion and Directions for Further Research}
+
+\textbf{Challenges for the design of CHI web applications}
+
+‘Therefore, it has been identified that there is a strong need to develop guidelines for ICT-based tools for contextualization and personalization which will then be a part of the design requirements for health-related websites’
+
+‘Results from this study have indicated that there is a gap between the informational contexts proposed to the website visitors (such as the level of possible solutions) and the user’s personal contexts’
+
+‘It is important to address this problem in order to insure that both, top-down (from the expert to the user) and bottom-up (from the user to the expert) approaches to contexts can be coupled in order to develop coherent contextualization and personalization guidelines’
+
+\textbf{Benefits for consumers and patients}
+
+It is identified that patient empowerment efforts should be targeted to where there is a significant potential for improving patients’ control and autonomy. It is also said that, changes in health condition can better be understood and decisions can be better made by the patient on the basis of informed choices and education
+
+‘For a patient to be an informed patient it requires a good level of information literacy and health literacy and is considered as a lifelong learning process’
+
+‘It is also identified that components of contextualization and personalization of information in self-management systems have a role to play as a pre-requisite in raising the website visitor’s health literacy and eventually his lifelong learning development’
+
+\textbf{Benefits for the healthcare professionals}
+
+‘It is understood that stimulating self-management of patients with chronic conditions can have a positive influence on the use of healthcare services’
+
+‘A transfer of care activities from the healthcare providers to the patients could be achieved by equipping patients with adequate tailored tools (in particular, dedicated for self-management). In this way, it is understood that patients become real partners in the care process, and healthcare professionals can treat more serious patient cases’ 
+
+\textbf{Conclusion}
+
+“While it has been acknowledged that health information should be tailored to reach more consumers, limited research has been carried out to enable the emerging consumers of health information to bridge the gap between access to information and information understanding’
+
+‘Therefore, it is understood that, it is important to focus not only on contextualization but also on personalization and how they are intertwined’
+
+
+
+	
+\end{document}
