@@ -1,4 +1,5 @@
 \documentclass[]{article}
+\usepackage{graphicx}
 
 %opening
 \title{Annotated Bibliography}
@@ -9,34 +10,34 @@
 \maketitle
 
 
-\section{Zuccon, G., Koopman, B., & Palotti, J. (2015, March). Diagnose this if you can. In European Conference on Information Retrieval (pp. 562-567). Springer, Cham.}
+\section{Zuccon, G., Koopman, B., \& Palotti, J. (2015, March). Diagnose this if you can. In European Conference on Information Retrieval (pp. 562-567). Springer.}
 
-The authors of this paper have analysed the effectiveness of current search engines in retrieving relevant information for diagnostic medical circumlocutory queries. ‘Circumlocutory queries’ are the queries issued by people who are seeking for information about their health conditions, but by describing the symptom they observe rather than using the medical term. 
+The authors of this paper have analysed the effectiveness of current search engines in retrieving relevant information for diagnostic medical circumlocutory queries. ‘Circumlocutory queries’ are queries where symptoms the user observes are described in a long winded form, rather than using the specific medical term for the symptoms. 
  
-\textbf{Methodology}: In this research researchers have investigated 8 main symptoms and for each of these symptoms they have considered 3 to 4 queries (26 queries). The queries have been obtained using a method which was proposed by Stanton and colleagues. This method generates medical circumlocution diagnostic queries which resemble what users may issue to search for self-diagnosis information. Along with the queries, the names of the symptoms that they refer to, have been recorded in a table. This information has been used for relevance assessment.
+\textbf{Methodology}: In this research researchers have investigated 8 main symptoms and for each of these symptoms they have considered 3 to 4 queries (26 queries in total). The queries have been obtained using a method which was proposed by Stanton and colleagues [put reference with the command \cite{bibid} and in place of bibid put the bib key of the paper from Stanton]. This method generates medical circumlocution diagnostic queries which resemble what users may issue to search for self-diagnosis information. Along with the queries, the names of the symptoms that they refer to have been recorded in a table. This information has been used for relevance assessment.
  
 Then the queries have been issued to two commercial search engines (Google and Bing). The top 10 search results were retrieved in answer to each of the 26 queries. Queries were issued against the Google Ajax API and the Microsoft Azure Marketplace API from Australia on the same day. The URL of the returned top 10 results have also been recorded. 
 
-A customised version of the Relevation! assessment tool has been used to conduct the relevance assessment. Eight higher degree students and researchers from Queensland University of Technology were recruited to assess the relevance of the retrieved results. Most importantly, these assessors are not medical experts, so that this experiment can realistically simulate the situation of people with little or no medical knowledge searching for health information on the Web. The results/web pages (retrieved by all its relevant queries) belonging to a single symptom were shown to one accessor. Accessors has to decide by evaluating whether each webpage provided relevant information, so that a user is able to self-diagnose or is able to find the correct medical term of the symptom they are experiencing. Assessors were given 4 labels, which are Not relevant, On topic but unreliable, Somewhat relevant and Highly relevant, and were instructed to assign one label for each search result. 
+A customised version of the Relevation! assessment tool has been used to conduct the relevance assessment. Eight higher degree students and researchers from Queensland University of Technology were recruited to assess the relevance of the retrieved results. Most importantly, these assessors are not medical experts, so that this experiment can realistically simulate the situation of people with little or no medical knowledge searching for health information on the Web. The results/web pages belonging to a single symptom were shown to one assessor. The assessors had to decide whether each webpage provided relevant information, so that a user is able to self-diagnose or is able to find the correct medical term of the symptom they are experiencing. Assessors were given 4 labels, which are Not relevant, On topic but unreliable, Somewhat relevant and Highly relevant, and were instructed to assign one label for each search result. 
 
 The effectiveness of the two search engines have been assessed using precision and nDCG. Precision has been considered at ranks 5 and 10 indicating the proportion of relevant documents among the top 5 (10) search results. nDCG has been considered at ranks 1, 5 and 10 indicating the usefulness of the document ranking based on the position of relevant documents in the result list.
      
-\textbf{Results}: The results have shown that on average only about 4 to 5 out of the top 10 results retrieved by the considered search engines provide information that are helpful to people in self-diagnosing themselves. In particular, if highly relevant information is sought, only 3 out of 10 results on average are highly useful for self-diagnosis purposes.
+\textbf{Results}: The results have shown that on average only about 4 to 5 out of the top 10 results retrieved by the considered search engines provide information that are helpful to people self-diagnosing themselves. In particular, if highly relevant information is sought, only 3 out of 10 results on average are highly useful for self-diagnosis purposes.
 
-When analysing the documents/results which were assigned as ‘Somewhat relevant’, it revealed that these documents contained information not only regarding the relevant symptom but also it had information about other symptoms as well. E.g. It had a list of symptoms with corresponding definition which also included the targeted symptom. An analysis of the documents assessed as ‘highly relevant’ revealed that, those documents contained information which was focused on the relevant symptom and it also included, descriptions and causes of the symptoms aided by photographic material showing visual examples of symptoms occurrences. Documents which were assessed as ‘on topic but unreliable’ has been considered irrelevant in this evaluation.
+When analysing the documents/results which were judged as ‘Somewhat relevant’, it revealed that these documents contained information not only regarding the relevant symptom but also it had information about other symptoms as well. E.g. It had a list of symptoms with corresponding definition which also included the targeted symptom. An analysis of the documents assessed as ‘highly relevant’ revealed that those documents contained information which was focused on the relevant symptom and it also included descriptions and causes of the symptoms aided by photographic material showing visual examples of symptoms occurrences. Documents which were assessed as ‘on topic but unreliable’ have been considered irrelevant in their evaluation.
       
 \textbf{Conclusion}: According to the results of this study, it is suggested that current retrieval techniques may be poorly suited to queries which describe symptoms in a circumlocutory, colloquial manner. 
 
 Therefore, there is a possible risk encountered with people searching the Web for information for self-diagnosis, because they are likely to encounter misleading advice/irrelevant information that could confuse them, lead to erroneous self-diagnosis and ultimately cause harm. 
 More research need to be directed towards search systems so as to support such circumlocutory, colloquial queries. 
   
-\textbf{Limitations}: Only a small amount of queries were considered, this evaluation has considered an ad hoc scenario which means that only one query has been considered (where in reality health-related queries can be part of more complex search sessions, so the effectiveness of the sessions should also be accounted), all the factors that come into play, such as reliability and understandability of the retrieved information when determining the relevance of the documents have not been considered in this experiment. 
+\textbf{Limitations}: Only a small amount of queries were considered. Moreover, this evaluation has considered an ad-hoc scenario which means that only one query has been considered (whereas in reality health-related queries can be part of more complex search sessions, so the effectiveness of the sessions should also be accounted for). All the factors that come into play, such as reliability and understandability of the retrieved information when determining the relevance of the documents have also not been considered in this experiment. 
 
 
-\section{Stanton, I., Ieong, S., & Mishra, N. (2014, July). Circumlocution in diagnostic medical queries. In Proceedings of the 37th international ACM SIGIR conference on Research & development in information retrieval (pp. 133-142). ACM.}
+\section{Stanton, I., Ieong, S., \& Mishra, N. (2014, July). Circumlocution in diagnostic medical queries. In Proceedings of the 37th international ACM SIGIR conference on Research \& development in information retrieval (pp. 133-142). ACM.}
 
 
-The objective of this study is to find the underlying professional medical term with the use of a free-form colloquial health search query. In simple terms, the solution suggested in this paper is to ignore terms that are not relevant for determining the symptom and to pick up the terms which are more likely to matter.
+The objective of this study is to find the underlying professional medical term that refers to a free-form colloquial health search query. In simple terms, the solution suggested in this paper is to ignore terms that are not relevant for determining the symptom and to pick up the terms which are more likely to matter.
 
 \textbf{Colloquial names and circumlocutory  }
  
@@ -44,21 +45,21 @@ e.g. \textbf{Colloquial name} for ‘cephalalgia’: headache
 
 \textbf{Circumlocutory} for ‘cephalalgia’: my head is pounding
 
-This study has only focused on the ‘medical signs and symptoms’. The aim of it is to solve three problems namely, how to generate training data for this experiment, how to represent the similarity between a query and a symptom, and how to predict the symptom from a query. 
+This study has only focused on the ‘medical signs and symptoms’. The aim of it is to solve three problems: how to generate training data for this experiment, how to represent the similarity between a query and a symptom, and how to predict the symptom from a query. 
  
 \textbf{Three problem statements:}
 
-\textbf{Problem 1}. Given a medical sign or symptom s, find colloquial and circumlocutory ways of expressing s
+\textbf{Problem 1}. Given a medical sign or symptom $s$, find colloquial and circumlocutory ways of expressing $s$
 
-\textbf{Problem 2}. Given a medical sign or symptom s and a colloquial or circumlocutory expression c, identify ways to automatically represent the similarity of s to c
+\textbf{Problem 2}. Given a medical sign or symptom $s$ and a colloquial or circumlocutory expression $c$, identify ways to automatically represent the similarity of $s$ to $c$
 
-\textbf{Problem 3}. Given a circumlocutory expression c of a symptom s, design a way to automatically infer s from c  
+\textbf{Problem 3}. Given a circumlocutory expression $c$ of a symptom $s$, design a way to automatically infer $s$ from $c$  
 
 \textbf{Methodology:} 
 
-Researchers have followed, a reverse use of crowdsourcing with the use of images and videos to obtain training data (colloquial variants for a medical symptom). Then the main aim of this study has been to map queries to a symptom name and documents to a symptom name, in order to improve the search engines ability to retrieve more useful content. 
+Researchers have followed a reverse use of crowdsourcing with the use of images and videos to obtain training data (colloquial variants for a medical symptom). Then the main aim of this study has been to map queries to a symptom name and documents to a symptom name, in order to improve the search engines ability to retrieve more useful content. 
 
-In this attempt, people have been given with fixed symptoms and asked to tell what search queries they would issue to determine the health problem. Rather than providing an unfamiliar medical term, such as ‘scleral icterus’ to the crowdsourcing participants and asking them to generate possible queries, in this study a set-up has been made which simulate the experience of having a given symptom. This is done because users often describe what they see and feel. It is noticed that, the queries obtained in this study tend to be much shorter excluding many details about the situation when compared to queries which are obtained from query logs. 
+In this attempt, people have been given fixed symptoms and asked to tell what search queries they would issue to determine the health problem. Rather than providing an unfamiliar medical term, such as ‘scleral icterus’ to the crowdsourcing participants and asking them to generate possible queries, in this study a set-up has been made which simulate the experience of having a given symptom. This is done because users often describe what they see and feel. It is noticed that, the queries obtained in this study tend to be much shorter excluding many details about the situation when compared to queries which are obtained from query logs. 
 
 \textbf{Knowledge Sources used:  }
  
@@ -76,7 +77,7 @@ In this attempt, people have been given with fixed symptoms and asked to tell wh
 
 7.	\textbf{Colors:} Colors are important when diagnosing medical symptoms. One drawback is that two users can describe the same color in different ways. Researches have obtained a list of 949 colors. 
 
-Researchers have computed the similarity, between a query and a symptom using different features (query, sim[tom feature vevtor). Each query and the symptom is converted to a vector space depending on the feature selected (Every combination of query and symptom is used to create a feature vector). The cosine of the angle between these two vectors represent the similarity. E.g.: ‘To compute a feature based on body part similarity, for a query q and a symptom s compute cos(body(q), body(encyc(s)))’. ‘Queries that are circumlocutions of a symptom are labeled positive, and all other combinations are labeled negative’. 
+Researchers have computed the similarity, between a query and a symptom using different features (query, symptom feature vector). Each query and the symptom is converted to a vector space depending on the feature selected (Every combination of query and symptom is used to create a feature vector). The cosine of the angle between these two vectors represent the similarity. E.g.: ‘To compute a feature based on body part similarity, for a query q and a symptom s compute cos(body(q), body(encyc(s)))’. ‘Queries that are circumlocutions of a symptom are labeled positive, and all other combinations are labeled negative’. 
 
 The vector space is created over the words in the query. The dimension of the vector are words and the values represent how many times the word appears.  
 
@@ -119,14 +120,14 @@ The overall accuracy is 59%
   
 The top features identified in this approach have the ability to ‘match the query or synonym of the query to the symptom or encyclopedia expansions of the symptom’. The feature ‘body parts’ are one of the top ranked feature, but ‘colors’ as a feature is absent. 
 
-\textbf{Limitations:}  The first limitation is that, these crowdsourcing participants do not properly represent a sample of Internet users. The second limitation is that, it is kind of impossible for someone to correctly describe how a symptom feels and the pain experienced, when that person is actually not experiencing the symptom. The second drawback was existed only in cases where the crowdsourcing people had to have personal experience.     
+\textbf{Limitations:}  The first limitation is that, these crowdsourcing participants do not properly represent a sample of Internet users. The second limitation is that, it is ultimately impossible for someone to correctly describe how a symptom feels and the pain experienced, when that person is actually not experiencing the symptom. The second drawback existed only in cases where the crowdsourcing people had to have personal experience.     
 
 
 
-\section{Pogacar, F. A., Ghenai, A., Smucker, M. D., & Clarke, C. L. (2017, October). The Positive and Negative Influence of Search Results on People's Decisions about the Efficacy of Medical Treatments. In Proceedings of the ACM SIGIR International Conference on Theory of Information Retrieval (pp. 209-216). ACM.}
+\section{Pogacar, F. A., Ghenai, A., Smucker, M. D., \& Clarke, C. L. (2017, October). The Positive and Negative Influence of Search Results on People's Decisions about the Efficacy of Medical Treatments. In Proceedings of the ACM SIGIR International Conference on Theory of Information Retrieval (pp. 209-216). ACM.}
 
 
-According to this paper researchers have aimed to determine ‘the extent to which people can be influenced by search engine results’. This means if a user is seeking information to determine the efficacy of a medical treatment, how will they determine the efficacy depending on the results that they have obtained. The health information sought by consumers are mostly related to either a health issue or medical treatment. Therefore, it is really important to understand whether the search results would have any influence on consumers when they make decision about medical treatments. 
+This paper aims to determine ‘the extent to which people can be influenced by search engine results’. This means if a user is seeking information to determine the efficacy of a medical treatment, how will they determine the efficacy depending on the results that they have obtained. The health information sought by consumers is mostly related to either a health issue or medical treatment. Therefore, it is really important to understand whether the search results would have any influence on consumers when they make decision about medical treatments. 
      
 \textbf{Methodology:} The researchers have conducted a controlled laboratory test with 60 participants. The results given to the participants were either biased towards being correct or incorrect. In addition, the researchers have controlled the topmost rank of a correct result to investigate the effect of rank. Participants had to decide the efficacy of 10 medical treatments, either with the help of a search result page or under a controlled condition where they had to directly answer the question with any search results. 
 
@@ -197,7 +198,7 @@ When the search bias was towards incorrect information ‘the results show that 
 
 For 8 out of 10 treatments which were biased towards correct information, the accuracy was increased with respect to the control. 
 
-\textbf{Control condition}: When the medical treatment was truly unhelpful, participants were tend to answer it as ‘inconclusive’. This clarifies that participants are looking for positive information because they do not want to believe a treatment is unhelpful. This is dangerous because this means that searchers are expecting to find positive information and therefore, they can be influenced by ‘search results with incorrect information’. 
+\textbf{Control condition}: When the medical treatment was truly unhelpful, participants tended to answer it as ‘inconclusive’. This clarifies that participants are looking for positive information because they do not want to believe a treatment is unhelpful. This is dangerous because this means that searchers are expecting to find positive information and therefore, they can be influenced by ‘search results with incorrect information’. 
 
 Participants were asked to provide information about their previous knowledge about health issues. It is found that ‘Knowledge of the health issue and medical treatment were positively correlated as determined by the Pearson correlation coefficient of r = 0.40 (p 0.001)’.
  
@@ -218,31 +219,186 @@ If the analysis is performed for the fraction of harmful decisions, it is found 
 
 Search results can significantly affect people’s decisions about the efficacy of medical treatments.
 
-‘Compared to not using a search engine, when users interacted with search results which were biased toward incorrect information, their accuracy dropped from 43% to 23%. When users interact with search results biased towards correct information, their accuracy climbed to 65%’.
+‘Compared to not using a search engine, when users interacted with search results which were biased toward incorrect information, their accuracy dropped from $43\%$ to $23\%$. When users interact with search results biased towards correct information, their accuracy climbed to $65\%$’.
 
 Non-relevant does not always mean that they are not harmful. Because if a document is able to lead searcher to believe in a harmful medical treatment it would be dangerous and damaging. 
   
 Therefore, these results demonstrate that search engines have a great potential to both help and harm people. 
 
 
-\section{Soldaini, L., Yates, A., Yom-Tov, E., Frieder, O., & Goharian, N. (2016). Enhancing web search in the medical domain via query clarification. Information Retrieval Journal, 19(1-2), 149-173.}
+\section{Soldaini, L., Yates, A., Yom-Tov, E., Frieder, O., \& Goharian, N. (2016). Enhancing web search in the medical domain via query clarification. Information Retrieval Journal, 19(1-2), 149-173.}
+
+Aim of this research is to ‘bridge the gap between layperson and expert vocabularies’.  Researchers have used the strategy ‘query clarification’ in order to accomplish this. ‘Query clarification’ means that ‘adding the most appropriate expert expression to queries submitted by users’. In this study they have used three ‘laypeople-to-expert’ synonyms mappings. Therefore, each type of mapping will map ‘one or more layperson expressions to one or more expressions used by medical professionals’. This study also had used both ‘laypeople’ and ‘expert users with medical training’. The final results have implicated that laypeople prefer clarifying their queries because they can obtain more useful information to correctly answer health-related questions. However, the expert users preferred to have their own original queries when retrieving information. It has also been shown that the percentage of correct answers will increase if users are able to retrieve ‘trustworthy’ web pages, such as The Health On the Net (HON) Foundation certified web pages. Therefore, the researchers have introduced a methodology which will improve the existing search engines which consumers are familiar with. Therefore, the target of this study is to ‘automatically improve queries with the use of three synonym mappings’.
+
+\textbf{Methodology:}
+
+For each of the layperson query three clarified queries have been generated using the three types of synonym mappings. Each type of mapping will map ‘an expression from a layperson’s vocabulary to one or more expressions used by medical professionals.’ These medical expressions are referred to as ‘clarification candidates’. Then they have used an algorithm to determine the ‘most appropriate expression among clarification candidates’. The Bing has been used to retrieve search results for each of the four versions of the query. 
+
+\textbf{Three types of synonym mappings:}
 
 
+\textbf{Behavioural mappings:} ‘Links expressions commonly used by laypeople to describe their medical condition, to 195 symptoms listed in the International Statistical Classification of Diseases and Related Health Problems, 10th Revision (ICD-10)’. The synonyms have been generated in two ways’. Firstly, ‘the most frequent search terms that led users to click on Wikipedia pages describing symptoms were selected’. Secondly, ‘frequently occurring lexical affinities’ has also been added to the list. Lexical affinities are known as ‘word pairs appearing in close proximity in the 50 highest ranked search results retrieved when symptoms were used as queries’.
 
 
+\textbf{MedSyn mappings:} This has ‘focused on diseases and symptoms, and has been generated from a subset of UMLS filtered to remove irrelevant terms types. SIDER 2 was used to keep only terms with UMLS semantic types that were assigned to side effects listed on drug labels. Synonyms of these terms were identified using UMLS’ semantic network and added to the map'.
 
 
+\textbf{DBpedia  mappings:} ‘Use Wikipedia redirect pages as a mean to map laypeople expressions to expert terminology and to route users to the most appropriate expression for a concept’. DBpedia is ‘aimed at extracting structured information from Wikipedia, to parse redirect pages’. According to this knowledge ‘two expressions X and Y are labelled as synonyms if there exits a redirect from page X to page Y’. 
 
 
+\textbf{Candidate selection:}
+
+Because an expression in a query can be mapped to more than one clarification candidate and all of these clarification candidates are not suitable for expansion, it is important to ‘select the clarification candidate that better represents the medical concept expressed by consumers in the query.’ The heuristic used to do this was to select the clarification candidate ‘whose probability of appearing in health-related Wikipedia pages is maximum’. The equation to obtain this is:
+
+\includegraphics{Cap 1.png}
 
 
+\textbf{H(W):} Health related Wikipedia pages
+
+\textbf{How to determine a page is health-related:}  ‘Any page whose information box contained one of the following medically-related identification codes has been designated as health-related: MedlinePlus, DiseasesDB, eMedicine, MeSH, or OMIM’. ‘Of 2,794,145 unique pages indexed, about 0.88 % (24,654 pages) have been identified as health-related’. 
+
+\textbf{Numerator:} Calculated by dividing the number of pages in H(W) containing clarification candidate by the size of H(W)
+
+\textbf{Denominator: } Calculated by dividing the number of Wikipedia pages containing clarification candidate by the total number of pages in Wikipedia
+
+According to this heuristic, ‘the candidate maximizing the following equation has been selected for clarification’.
+
+\includegraphics{Cap 2.png}
+
+It is believed that ‘the more a clarification candidate appears in health-related Wikipedia pages, the more likely it is that the candidate is the most appropriate expression to describe the concept in the query’. Therefore, this study has choosen to ‘clarify a query with the expression ck that maximizes Eq. 1’.
+   
+This study has avoided ‘augmenting a query with more than one clarification candidate to minimize the likelihood of query drift’. ‘If multiple expressions in a query can be mapped to an expert term using a synonym mapping’ then they have considered ‘the longest, as it fully captures the information need of the user’. ‘If multiple expressions of the same length can be clarified’ then they have considered ‘the one with the highest conditional probability’.
+
+\textbf{Overlap between mappings:}
+
+Understand the similarities and differences of three different synonym mappings. 
+
+\textbf{(1)	Size of each synonym mapping}
+
+‘Behavioral has the fewest number of expressions, whereas DBpedia has the most’. However, ‘Behavioral only includes medical symptoms’. Because of the difference in size ‘the number of clarification candidates of each mapping’ is also different. 
+
+Behavioral: M = 1.02 (SD = 0.24)
+
+MedSyn: M = 1.16 (SD = 1.07)
+
+The difference is not statistically significant.
+
+DBpdia: M = 2.46 (SD = 4.42)
+
+‘The difference is statistically significant over Behavioral and MedSyn, p-0:05’. 
+
+\textbf{(2)	Overlap between each list of synonyms}
+
+‘Behavioral, the mapping with the smallest synonym list is almost completely contained (98.5 %) within DBpedia, the largest mapping’
+
+‘Behavioral and MedSyn have far fewer expressions in common, as about one fifth (21.3 %) the expressions in Behavioral are also present in MedSyn’.
+
+\textbf{(3)	Overlap between the unclarified queries the queries clarified by each mapping}
 
 
+‘In cases where a synonym mapping had no clarification expression to add, it is said that the null term was added’. ‘MedSyn added the null term (i.e., did not add any clarification expression to the query) 30 % of the time, while both Behavioral and DBpedia added a expression to the vast majority of queries’.
+ 
+‘Behavioral and DBpedia often lead to similar clarifications (74 % overlap), which has been expected given the high overlap between the two synonym lists’.
+
+Even though ‘only 8% of the synonyms found in MedSyn occurred in DBpedia, the overlap in terms of expressions added to the queries by the two mapping has been identified as considerably higher (36%)’. 
+
+‘Queries clarified with MedSyn retrieved, on average, 38 % of the results retrieved by the unclarified query’
+
+\textbf{Conclusion:} ‘According to statistics about the overlap of the URLs and overlap of the Snippets, it has confirmed that Behavioral and DBpedia are the most similar mappings, even though the former mapping comprises of only a small subset of the latter’. ‘Of all synonym mappings, MedSyn yields the most similar results to the baseline; yet, it still adds a significant number of clarification expressions and URLs over the unclarified query’.
+
+\textbf{Experimental plan:}
+
+In this study researchers have clarified 50 queries which were obtained from a ‘Bing query log’. ‘For each query, a multiple choice question has been created; participants (laypeople and experts) have been required to answer it to demonstrate their understanding of the retrieved results’.
+
+The set of queries which has been used for this study contained ‘a symptom, drug name, or disease name, or one of their synonyms, as listed in Wikipedia’. Then the researchers have ‘randomly sampled 50 out of the 500 most common queries in the resulting list. Sampling has been done to reduce the dimensionality of the dataset, thus making the experimentation more tractable’. ‘The 50 queries in the dataset have contained 93 unique terms and have had an average length of 2.6 terms (median length is equal to 2)’. 
+
+\textbf{Evaluation questions:}
+
+For this ‘task-based experiment, for each query, a question has been created, that would estimate the quality of the retrieved results in providing helpful information to a user’.
+
+\textbf{Design goal of the questions:} To formulate questions, ‘that (a) are highly relevant to the query, (b) required reading at least one, if not many, of the links shown and (c) are not easily intelligible by reading the snippets provided with each search result’. ‘Each question has been created by following a procedure: first, the authors have read the query and content of the search results; then, they have formulated a question based on the content of the retrieved web pages; finally, they have generated four possible answers—one correct, three wrong’.  
+
+\textbf{Online evaluation platform:}
+ 
+A website has been developed. ‘Through this website, laypeople and medical experts have answered a set of health-related, multiple-choice questions using a set of search results retrieved using Bing.’ ‘For each query in the dataset, researchers have shown participants the query itself and the question simulating the information need associated with the query. Users have been asked to find the answer to the question presented to them by using the displayed search results’. Also, it has been compulsory to open at least one link before answering the question. Users have not allowed to modify the displayed query. ‘For each respondent and each query, an interaction report consisting of the links clicked and the answer given has been created’.
+ 
+In order to make the sets of results retrieved using different synonyms mapping unbiased, the study has used interleaving. ‘Team draft interleaving’ has been chosen to evaluate the platform. ‘. ‘Given two ranked lists A and B of retrieved results, A={a1, a2, an}, B={b1, b2,…..bn}, the study has operated as: for each pair of results ai and bi of rank i, an unbiased coin has been flipped; if heads, ai has been ranked before bi in the interleaved set of result; if tails, bi has been ranked first. As detailed in (Radlinski and Craswell 2013), team draft interleaving has shown comparable levels of expert agreement to other interleaving methods, and has been less prone to introducing bias’. 
+
+Each participant has been asked to answer 20 medical questions. 
+
+80 workers and 12 medical experts have been recruited for this task.
+
+‘Interleaved results retrieved using original queries and queries clarified by MedSyn have been provided to this group of participants. MedSyn has been chosen because its promising results on preliminary tests.’
 
 
+\textbf{Results:}
+
+Out of each query clarification methods, the method preferred by user has been identified as ‘the one that retrieved the majority of web pages (s)he visited’. In other words ‘researchers have assigned a preference to synonym mapping i when compared with mapping j if a user has clicked more results retrieved by a query clarified with mapping i than results retrieved by a query clarified with mapping j’. 
+
+\includegraphics{Cap 3.png}
+
+‘Behavioral, while identified as the preferred clarification mapping for correctly answered questions, has been ranked last when the set of all questions has been considered. It has hypothesized that such behaviour could be due to the skewness induced by the preference expressed for unclarified queries’
+
+It has been also observed that ‘users seem to equally prefer queries clarified by Behavioral and MedSyn’ when considering the correctly answered questions. 
+
+In order to measure the difference between two synonym mappings, ‘the average fraction of correct answers for each clarification candidate’ has been calculated ‘when the query clarified by such candidate is preferred’. 
+
+It has been found that ‘Behavioral has had the highest fraction of correct answers (0.678)’. In other words, ‘when users have expressed a preference for results retrieved by a query clarified with Behavioral, they have been able to correctly answer the question associated with the query 68 % of the time’.
+
+This has represented an improvement of 4.63 % over MedSyn, an improvement of 5.38 % over DBpedia and an improvement of 7.33 % over no query clarification which has been identified as statistically significant.
+
+\textbf{Conclusion:} Behavioral has been identified as the best performing synonym mapping because ‘it both achieved the highest Kemeny ranking for correctly answered questions and yielded the highest fraction of correct to incorrect question answers’. In addition, Behavioral has been the ‘least preferred for the set of incorrectly answered questions’.
+
+\textbf{Users analysis:} ‘All users have answered questions better than would be expected by chance (i.e., 25 % of the time). Furthermore, the vast majority (95%) of users have answered questions correctly over 50 % of the time’. 
+
+It has shown that the expert group has been able to correctly answer a higher number of questions. It has also shown that experts have visited more web pages prior answering each question. 
+
+Even though participants in both groups have clicked on more results prior answering a question correctly, the difference has been identified to be not significant. 
+
+When considering Intra-agreement between two groups, experts have had a higher agreement when compared to laypeople. This observation has confirmed the fact that ‘experts are more likely to correctly answer the proposed questions’. This may also have been due to the background of experts, which helped them to infer useful information ‘from the retrieved results to satisfy their information needs’. On the other hand, laypeople have been identified to be more likely to guess the answers for difficult questions which has displayed their ‘lower agreement and lower success rate’.
+ 
+This study has also shown that for laypeople, the average number of web pages visited and the fraction of correctly answered questions has a ‘moderate positive correlation’. However, for the expert group it has shown that there has been a ‘strong but not significant negative correlation between the average number of web pages visited and the fraction of correct answers’. This has illustrated that experts may ‘need to visit less web pages to correctly answer a question’. Therefore, the number of ‘visited results has been identified as unique to each user, and is not influenced by the perceived difficulty of each question’. 
+
+In conclusion, even though laypeople prefer clarified queries, this study has noted that experts prefer unclarified queries. However, ‘the difference in success rate between the two groups has been identified to be not significant’. The reason for these findings has been assumed as due to the fact that ‘experts are more likely to effectively determine those documents that could satisfy their information need from the text snippet, thus not benefiting from query clarification’.     
+
+\textbf{Questions analysis:} In this study the ‘fraction of each question’s correct answers’ has been analysed to ‘assess query difficulty and determine eventual differences between the test groups’. ‘The average fraction of correct answers is higher for experts’. 
+
+When considering experts, 19 out of 50 queries have been correctly answered by all the experts. Also, 4 out of 50 queries have been incorrectly answered by all the experts.
+
+On the other hand, there has been no queries which were correctly or incorrectly answered by all laypeople. It is noticed that this could be possible because the smaller numbers experts involved in this experiment. 
+  
+In conclusion, it has shown that there is a  ‘strong correlation of the success rate of each question between the two groups’. This has infered that ‘some questions are, for both laypeople and experts, inheritely more difficult than others’.
+
+\textbf{Reliability of results:} This study has also assessed the difference of retrieving results which are certified and not certified by HON organization. It has shown that ‘users were 7.7 % statistically more likely to answer questions correctly after visiting a website with HONcode certification’. 
+
+In conclusion, ‘HON certified websites help laypeople to answer medical questions correctly, lending credence to the importance of such certification’. Also, it has shown that clarified queries are able to ‘connect laypeople with trustworthy medical resources’ which has demonstrated the effectiveness of the system of clarifying queries.    
+
+\textbf{Selecting the optimal synonym mapping for query clarification}
+
+The research has shown that ‘Behavioral the best performing synonym mapping, has outperformed baseline in 66% of the cases. MedSyn and DBpedia have outperformed baseline in 62% and 50% of the cases respectively’. ‘When considering any synonym mapping, it has been noticed that, for 86% of the queries in the dataset, the baseline is outperformed’. 
+
+Therefore, the study has been continued to determine whether it is possible to predict the ‘most appropriate mapping, so as to further increase the benefits of query clarification’. As a result, ‘a classifier has been introduced, given a query, either predicts which synonym mapping among Behavioral, MedSyn, and DBpedia should be used to clarify the query, or predicts to perform no clarification.’ 
+
+In order to do this, ‘four binary logistic regression models M = {M1, …….. , M4} have been trained as one-vs-the-rest classifiers: given a query qi and its best clarification candidate Ck, researcher have trained model Mk with class label 1, and models Mh -> M, h = k with class label 0’.  
+
+Two sets have been used to train each model.
+
+\textbf{Set 1:} This has been ‘defined over each query and each clarification candidate; it has included estimations of the likelihood of unigrams, bigrams, and trigrams in the query of appearing in any Wikipedia page, as well as their likelihood of appearing in health-related Wikipedia pages’.
+
+\textbf{Set 2:} This has been ‘defined over each web page retrieved by a query qi processed by a clarifi- cation candidate Ck; in particular, researcher have considered the domain name, LCS between the clarified query and the page title, LCS between the clarified query and the search snipped of the page, and the presence of the page in the Health on Net database as predictor variables’. 
+
+‘To determine the optimal clarification mapping for a query qi, researchers have used each model Mk to calculate an estimation pi,k of the likelihood of clarification candidate Ck of being the optimal mapping for qi. For each qi, the system has chosen as clarification mapping the one with the highest likelihood, i.e., argmaxk(pi,k)’. 
+
+The performance of the logistic regression classifier has been compared with ‘the results obtained by each individual synonym mapping’. They have also ‘considered a simple multinomial logistic regression classifier trained on the fraction of retrieved results that are certified by HON as an additional baseline’. The logistic regression classier has performed the best out of all individual synonym mappings and unclarified queries. In detail, ‘it has achieved a 12.81 % increase over the unclarified query, an 11.06 % increase over DBpedia, a 10.20 % increase over MedSyn and a 5.16 % increase over Behavioral’. It has also ‘outperformed (9.86 % improvement) the simple classifier trained on the number of HON certified pages retrieved’. 
+
+Therefore, it has been concluded that ‘query clarification can be further improved by selecting the most appropriate clarification candidate(synonym mapping) for each query’.  
 
 
+\textbf{Conclusion}
 
+It has been shown in this study that ‘by clarifying queries submitted by non-experts to a major Internet search engine, the likelihood that a user will answer health-related questions correctly increases significantly, even though the documents they read were, ostensibly, written for non-experts’. Therefore, this approach has been able to ‘bridge the language gap between medical professionals and laypeople’. In addition, it has also shown that, ‘implicit query clarification is highly useful, and does not require making the user aware of the correct medical terminology’.   
+
+  
 
 
 \end{document}
